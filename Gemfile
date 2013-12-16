@@ -10,6 +10,8 @@ gem 'pry-rails'
 
 gem 'httparty'
 
+gem 'json'
+
 
 
 # Use SCSS for stylesheets
