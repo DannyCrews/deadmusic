@@ -8,6 +8,8 @@ gem 'pg'
 
 gem 'pry-rails'
 
+gem 'httparty'
+
 
 
 # Use SCSS for stylesheets
