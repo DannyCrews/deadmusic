@@ -1,3 +1,8 @@
+<%#= eval(@setlistfm_data)['setlists']['setlist'][1]['sets']['set']['song'] %> 
+
+
+
+
 
 <% k = 0 %>
 <% while k < eval(@setlistfm_data)['setlists']['setlist'].length do %>
@@ -19,28 +24,53 @@
 <%= eval(@setlistfm_data)['setlists']['setlist'][k]['venue']['city']['coords']['@long'] %>
 <br>
 
-<% j = 0 %>
-<% while j < eval(@setlistfm_data)['setlists']['setlist'][k]['sets']['set'].length-1 do %>
-<%= eval(@setlistfm_data)['setlists']['setlist'][k]['sets']['set'][j]['@name'] %>
+<% if eval(@setlistfm_data)['setlists']['setlist'][k]['sets']['set'].instance_of?(Array) %>
 
-<% i = 0 %>
-<% while i < eval(@setlistfm_data)['setlists']['setlist'][k]['sets']['set'][j]['song'].length do %>
-<%= eval(@setlistfm_data)['setlists']['setlist'][k]['sets']['set'][j]['song'][i]['@name'] %> <br>
-<% if (eval(@setlistfm_data)['setlists']['setlist'][k]['sets']['set'][j]['song'][i]['cover'] != nil ) %>
-<span>-----</span><%= eval(@setlistfm_data)['setlists']['setlist'][k]['sets']['set'][j]['song'][i]['cover']['@name'] %> <br>
-<% end %>
+    <% j = 0 %>
+    <% while j < eval(@setlistfm_data)['setlists']['setlist'][k]['sets']['set'].length-1 do %>
+    <%= eval(@setlistfm_data)['setlists']['setlist'][k]['sets']['set'][j]['@name'] %>
 
-<% i += 1 %>
-<% end %>
+    <% i = 0 %>
+        <% while i < eval(@setlistfm_data)['setlists']['setlist'][k]['sets']['set'][j]['song'].length do %>
+        <%= eval(@setlistfm_data)['setlists']['setlist'][k]['sets']['set'][j]['song'][i]['@name'] %> <br>
+        <% if (eval(@setlistfm_data)['setlists']['setlist'][k]['sets']['set'][j]['song'][i]['cover'] != nil ) %>
+        <span>-----</span><%= eval(@setlistfm_data)['setlists']['setlist'][k]['sets']['set'][j]['song'][i]['cover']['@name'] %> <br>
+          <% end %> <!-- end if -->
 
-<% j += 1 %>
-<% end %>
+    <% i += 1 %>
+    <% end %>
+
+    <% j += 1 %>
+    <% end %>
+                <%= eval(@setlistfm_data)['setlists']['setlist'][k]['sets']['set'][j]['song'] %> 
+
+
+  <% else %>
+    <% if eval(@setlistfm_data)['setlists']['setlist'][k]['sets'].instance_of?(String) %>
+
+  <% else %>
+      <% if eval(@setlistfm_data)['setlists']['setlist'][k]['sets']['set'].instance_of?(Hash) %>
+
+        <% i = 0 %>
+            <% while i < eval(@setlistfm_data)['setlists']['setlist'][k]['sets']['set']['song'].length do %>
+            <%= eval(@setlistfm_data)['setlists']['setlist'][k]['sets']['set']['song'][i]['@name'] %> <br>
+            <% if (eval(@setlistfm_data)['setlists']['setlist'][k]['sets']['set']['song'][i]['cover'] != nil ) %>
+            <span>-----</span><%= eval(@setlistfm_data)['setlists']['setlist'][k]['sets']['set']['song'][i]['cover']['@name'] %> <br>
+        <% end %> <!-- end if -->
+        <% i += 1 %>
+        <% end %>
+
+    <% end %> <!-- end if -->
+  <% end %> <!-- end if -->
+
+<% end %> <!-- end if -->
 
 <br>
 <br>
 <br>
 
 <% k += 1 %>
+
 <% end %>
 
 

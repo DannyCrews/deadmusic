@@ -2,7 +2,7 @@ class ApiController < ApplicationController
   require 'json'
 
   def index
-     File.open('app/assets/data/setlistfm85.txt', 'r') do |file|
+     File.open('app/assets/data/setlistfm1.txt', 'r') do |file|
      @setlistfm_data = file.read
       end
   end
