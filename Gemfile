@@ -12,6 +12,8 @@ gem 'httparty'
 
 gem 'json'
 
+gem 'gmaps4rails'
+
 
 
 # Use SCSS for stylesheets
