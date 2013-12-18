@@ -14,6 +14,8 @@ gem 'json'
 
 gem 'gmaps4rails'
 
+gem 'geocoder'
+
 
 
 # Use SCSS for stylesheets
