@@ -28,6 +28,9 @@ GEM
     angularjs-rails (1.2.4)
     arel (4.0.1)
     atomic (1.1.14)
+    bootstrap-sass-rails (3.0.3.0)
+      railties (>= 3.1.0)
+      sass-rails (>= 3.1.0)
     builder (3.1.4)
     coderay (1.1.0)
     coffee-rails (4.0.1)
@@ -125,6 +128,7 @@ PLATFORMS
 
 DEPENDENCIES
   angularjs-rails
+  bootstrap-sass-rails
   coffee-rails (~> 4.0.0)
   geocoder
   gmaps4rails

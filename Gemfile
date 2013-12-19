@@ -20,6 +20,8 @@ gem 'angularjs-rails'
 
 gem 'ngmin-rails'
 
+gem 'bootstrap-sass-rails'
+
 
 
 # Use SCSS for stylesheets
