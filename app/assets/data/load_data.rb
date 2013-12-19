@@ -1,5 +1,5 @@
  m = 1
- while m <= 1 do
+ while m <= 9 do
 
   File.open("setlistfm#{m}.txt", "r") do |file|
     @setlist = file.read
@@ -11,7 +11,7 @@ end
 
 k = 0
 while k < @setlistfm_data['setlists']['setlist'].length do
-  events.create([{ :name => @setlistfm_data['setlists']['setlist'][k]['@eventDate']},
+  Event.create([{ :name => @setlistfm_data['setlists']['setlist'][k]['@eventDate']},
     {:tour => @setlistfm_data['setlists']['setlist'][k]['@tour']},
     {:url => @setlistfm_data['setlists']['setlist'][k]['url']},
     {:venue => @setlistfm_data['setlists']['setlist'][k]['venue']['@name']},
@@ -24,19 +24,19 @@ while k < @setlistfm_data['setlists']['setlist'].length do
   if @setlistfm_data['setlists']['setlist'][k]['sets']['set'].instance_of?(Array)
     j = 0
     while j < @setlistfm_data['setlists']['setlist'][k]['sets']['set'].length-1 do
-     song_performances.create({:set => j+1})
+     SongPerformance.create({:set => j+1})
 
      i = 0
      while i < @setlistfm_data['setlists']['setlist'][k]['sets']['set'][j]['song'].length do
-       song_performances.create({:title => @setlistfm_data['setlists']['setlist'][k]['sets']['set'][j]['song'][i]['@name']})
+       SongPerformance.create({:title => @setlistfm_data['setlists']['setlist'][k]['sets']['set'][j]['song'][i]['@name']})
        if (@setlistfm_data['setlists']['setlist'][k]['sets']['set'][j]['song'][i]['cover'] != nil )
-         song_performances.create({:songwriter => @setlistfm_data['setlists']['setlist'][k]['sets']['set'][j]['song'][i]['cover']['@name']})
+         SongPerformance.create({:songwriter => @setlistfm_data['setlists']['setlist'][k]['sets']['set'][j]['song'][i]['cover']['@name']})
        end
        i += 1
      end
      j += 1
    end
-   song_performances.create({:encore => @setlistfm_data['setlists']['setlist'][k]['sets']['set'][j]['song']}) 
+   SongPerformance.create({:encore => @setlistfm_data['setlists']['setlist'][k]['sets']['set'][j]['song']}) 
 
  else
   if @setlistfm_data['setlists']['setlist'][k]['sets'].instance_of?(String)
@@ -44,9 +44,9 @@ while k < @setlistfm_data['setlists']['setlist'].length do
     if @setlistfm_data['setlists']['setlist'][k]['sets']['set'].instance_of?(Hash)
       i = 0
       while i < @setlistfm_data['setlists']['setlist'][k]['sets']['set']['song'].length do
-        song_performances.create({:title => @setlistfm_data['setlists']['setlist'][k]['sets']['set']['song'][i]['@name']})
+        SongPerformance.create({:title => @setlistfm_data['setlists']['setlist'][k]['sets']['set']['song'][i]['@name']})
         if (@setlistfm_data['setlists']['setlist'][k]['sets']['set']['song'][i]['cover'] != nil )
-         song_performances.create({:songwriter => @setlistfm_data['setlists']['setlist'][k]['sets']['set']['song'][i]['cover']['@name']})
+         SongPerformance.create({:songwriter => @setlistfm_data['setlists']['setlist'][k]['sets']['set']['song'][i]['cover']['@name']})
        end
        i += 1
      end

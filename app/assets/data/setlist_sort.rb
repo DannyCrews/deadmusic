@@ -23,7 +23,7 @@
   #     end
 
   #   end
-  m = 1
+  m = 108
   while m <= 115 do
 
 File.open("setlistfm#{m}.txt", "r") do |file|
@@ -64,7 +64,7 @@ while k < @setlistfm_data['setlists']['setlist'].length do
            end
         j += 1
         end
-    puts @setlistfm_data['setlists']['setlist'][k]['sets']['set'][j]['song'] 
+    # puts @setlistfm_data['setlists']['setlist'][k]['sets']['set'][j]['song'] 
 
     else
         if @setlistfm_data['setlists']['setlist'][k]['sets'].instance_of?(String)

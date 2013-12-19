@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(version: 20131218213655) do
   create_table "song_performances", force: true do |t|
     t.integer "event_id"
     t.text    "title"
-    t.text    "songwriter"
-    t.integer "set"
+    t.text    "songwriter", default: "Grateful Dead"
+    t.integer "set",        default: 1
     t.text    "encore"
   end
 
