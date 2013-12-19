@@ -23,8 +23,8 @@
   #     end
 
   #   end
-  m = 108
-  while m <= 115 do
+  m = 1
+  while m <= 5 do
 
 File.open("setlistfm#{m}.txt", "r") do |file|
   @setlist = file.read
