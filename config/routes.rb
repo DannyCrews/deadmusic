@@ -1,13 +1,14 @@
 Deadmusic::Application.routes.draw do
   resources :users
+  resources :api
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'api#index'
+  root 'users#index'
 
-  resources :api
+  
 
   # Example of regular route:
     # get '/' => 'api#index'
