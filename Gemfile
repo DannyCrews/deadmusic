@@ -16,6 +16,10 @@ gem 'gmaps4rails'
 
 gem 'geocoder'
 
+gem 'angularjs-rails'
+
+gem 'ngmin-rails'
+
 
 
 # Use SCSS for stylesheets
