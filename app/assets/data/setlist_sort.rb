@@ -24,7 +24,7 @@
 
   #   end
   m = 1
-  while m <= 5 do
+  while m <= 115 do
 
 File.open("setlistfm#{m}.txt", "r") do |file|
   @setlist = file.read
@@ -33,6 +33,7 @@ end
 
 @setlistfm_data = eval(@setlist)
 
+begin
 
   k = 0
 while k < @setlistfm_data['setlists']['setlist'].length do
@@ -52,7 +53,8 @@ while k < @setlistfm_data['setlists']['setlist'].length do
     if @setlistfm_data['setlists']['setlist'][k]['sets']['set'].instance_of?(Array)
         j = 0
         while j < @setlistfm_data['setlists']['setlist'][k]['sets']['set'].length-1 do
-           puts @setlistfm_data['setlists']['setlist'][k]['sets']['set'][j]['@name']
+           # puts @setlistfm_data['setlists']['setlist'][k]['sets']['set'][j]['@name']
+           puts j+1
 
            i = 0
            while i < @setlistfm_data['setlists']['setlist'][k]['sets']['set'][j]['song'].length do
@@ -83,6 +85,9 @@ while k < @setlistfm_data['setlists']['setlist'].length do
     end 
 
 k += 1
+end
+rescue Exception => e
+  puts '#{e}'
 end
 
 m += 1

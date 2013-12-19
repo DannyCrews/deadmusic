@@ -7,7 +7,7 @@ namespace :db do
 end
 
 def load_data
-  m = 10
+  m = 1
   while m <= 115 do
 
     File.open("#{Rails.root}/app/assets/data/setlistfm#{m}.txt", "r") do |file|
@@ -33,7 +33,7 @@ while k < @setlistfm_data['setlists']['setlist'].length do
   if @setlistfm_data['setlists']['setlist'][k]['sets']['set'].instance_of?(Array)
     j = 0
     while j < @setlistfm_data['setlists']['setlist'][k]['sets']['set'].length-1 do
-     SongPerformance.create(set:  j)
+     SongPerformance.create(set:  j+1)
 
      i = 0
      while i < @setlistfm_data['setlists']['setlist'][k]['sets']['set'][j]['song'].length do
