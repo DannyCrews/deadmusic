@@ -36,7 +36,7 @@ end
 begin
 
   k = 0
-while k < @setlistfm_data['setlists']['setlist'].length do
+while k < @setlistfm_data['setlists']['setlist'].length-1 do
     puts
     puts
 
@@ -57,7 +57,7 @@ while k < @setlistfm_data['setlists']['setlist'].length do
            puts j+1
 
            i = 0
-           while i < @setlistfm_data['setlists']['setlist'][k]['sets']['set'][j]['song'].length do
+           while i < @setlistfm_data['setlists']['setlist'][k]['sets']['set'][j]['song'].length-1 do
             puts @setlistfm_data['setlists']['setlist'][k]['sets']['set'][j]['song'][i]['@name']
             if (@setlistfm_data['setlists']['setlist'][k]['sets']['set'][j]['song'][i]['cover'] != nil )
                 puts @setlistfm_data['setlists']['setlist'][k]['sets']['set'][j]['song'][i]['cover']['@name']
@@ -73,7 +73,7 @@ while k < @setlistfm_data['setlists']['setlist'].length do
         else
           if @setlistfm_data['setlists']['setlist'][k]['sets']['set'].instance_of?(Hash)
             i = 0
-            while i < @setlistfm_data['setlists']['setlist'][k]['sets']['set']['song'].length do
+            while i < @setlistfm_data['setlists']['setlist'][k]['sets']['set']['song'].length-1 do
                puts @setlistfm_data['setlists']['setlist'][k]['sets']['set']['song'][i]['@name']
                if (@setlistfm_data['setlists']['setlist'][k]['sets']['set']['song'][i]['cover'] != nil )
                 puts @setlistfm_data['setlists']['setlist'][k]['sets']['set']['song'][i]['cover']['@name']

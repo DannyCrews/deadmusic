@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131219154611) do
+ActiveRecord::Schema.define(version: 20131219210812) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,9 +31,8 @@ ActiveRecord::Schema.define(version: 20131219154611) do
   create_table "song_performances", force: true do |t|
     t.integer "event_id"
     t.text    "title"
-    t.text    "songwriter", default: "Grateful Dead"
+    t.text    "songwriter"
     t.integer "set",        default: 1
-    t.text    "encore"
   end
 
   add_index "song_performances", ["event_id"], name: "index_song_performances_on_event_id", using: :btree
