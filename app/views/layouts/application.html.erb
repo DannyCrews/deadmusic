@@ -11,13 +11,24 @@
 </head>
 <body>
   <div id="container">
-    <header>
+    <header class="navbar navbar-fixed-top">
+      <nav class="navbar-inner">
+        <div class="container">
+        </div>
+      </nav>
     </header>
     <main role="main">
-      <%= yield %>
+      <div class="container">
+        <div class="content">
+          <div class="row">
+            <div class="span12">
+              <%= yield %>
+            </div>
+          </div>
+          <footer>
+          </footer>
+        </div>
+      </div>
     </main>
-    <footer>
-    </footer>
-  </div>
-</body>
-</html>
+  </body>
+  </html>

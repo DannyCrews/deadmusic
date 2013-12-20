@@ -2,10 +2,10 @@
   <h1>Song List for <%= link_to(@event.city, @event) %></h1>
 </header>
 
-<ol id="songs">
+<ul id="songs">
   <% @songs.each do |song| %>
     <li>
       <span class="song"><%= song.title %></span>
     </li>
   <% end %>
-</ol>
+</ul>
