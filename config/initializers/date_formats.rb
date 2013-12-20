@@ -1,1 +1,1 @@
-DateTime::DATE_FORMATS[:default] = "%B %e, %Y"
+DateTime::DATE_FORMATS[:default] = "%m/%d/%Y"
