@@ -6,8 +6,6 @@ gem 'rails', '4.0.0'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
-gem 'pry-rails'
-
 gem 'httparty'
 
 gem 'json'
@@ -46,6 +44,13 @@ gem 'jbuilder', '~> 1.2'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
+end
+
+group :development do
+  gem 'better_errors'
+  gem 'quiet_assets'
+  gem 'pry-rails'
+
 end
 
 # Use ActiveModel has_secure_password

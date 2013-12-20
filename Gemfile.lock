@@ -28,6 +28,9 @@ GEM
     angularjs-rails (1.2.4)
     arel (4.0.1)
     atomic (1.1.14)
+    better_errors (1.0.1)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
     bootstrap-sass-rails (3.0.3.0)
       railties (>= 3.1.0)
       sass-rails (>= 3.1.0)
@@ -74,6 +77,8 @@ GEM
       slop (~> 3.4)
     pry-rails (0.3.2)
       pry (>= 0.9.10)
+    quiet_assets (1.0.2)
+      railties (>= 3.1, < 5.0)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -128,6 +133,7 @@ PLATFORMS
 
 DEPENDENCIES
   angularjs-rails
+  better_errors
   bootstrap-sass-rails
   coffee-rails (~> 4.0.0)
   geocoder
@@ -139,6 +145,7 @@ DEPENDENCIES
   ngmin-rails
   pg
   pry-rails
+  quiet_assets
   rails (= 4.0.0)
   sass-rails (~> 4.0.0)
   sdoc
