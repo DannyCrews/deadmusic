@@ -1,7 +1,11 @@
 
 body { padding-top: 60px;
-  overflow-y: auto;
-   }
+    background-image:url('Grateful_Dead_Tapestry_bears_72001.jpg');
+    overflow-y: auto;
+    background-repeat: cover;
+    background-attachment:fixed;
+    text-align: center;
+    }
 
 #map img { 
   max-width: none;
