@@ -1,6 +1,7 @@
 Deadmusic::Application.routes.draw do
-  resources :events
-  resources :api
+  resources :events do
+    resources :song_performances
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

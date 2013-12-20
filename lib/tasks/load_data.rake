@@ -1,4 +1,3 @@
-
 namespace :db do
   desc 'Fill database'
   task :populate => :environment do
