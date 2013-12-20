@@ -1,5 +1,8 @@
 
-body { padding-top: 60px; }
+body { padding-top: 60px;
+  text-align: center;
+  overflow-y:scroll;
+   }
 
 #map img { 
   max-width: none;
@@ -7,3 +10,7 @@ body { padding-top: 60px; }
 #map label { 
   width: auto; display:inline; 
 } 
+
+h1 {
+  text-align: center;
+}

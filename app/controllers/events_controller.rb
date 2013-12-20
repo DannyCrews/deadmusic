@@ -2,11 +2,12 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
+    @songs = SongPerformance.all
     @events = Event.all
     @hash = Gmaps4rails.build_markers(@events) do |event, marker|
       marker.lat event.lat
       marker.lng event.long
-      marker.infowindow event.venue
+      marker.infowindow event.date
       end
     end
 

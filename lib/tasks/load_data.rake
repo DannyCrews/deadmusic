@@ -11,13 +11,14 @@ def load_data
 
     File.open("#{Rails.root}/app/assets/data/setlistfm#{m}.txt", "r") do |file|
       @setlist = file.read
+  # h1 = JSON.parse(setlistfm_data)
 end
 
 @setlistfm_data = eval(@setlist)
 
 begin
   k = 0
-  while k < @setlistfm_data['setlists']['setlist'].length do
+  while k < @setlistfm_data['setlists']['setlist'].length-1 do
     @event = Event.create(date:  @setlistfm_data['setlists']['setlist'][k]['@eventDate'],
      tour:   @setlistfm_data['setlists']['setlist'][k]['@tour'], 
      url:  @setlistfm_data['setlists']['setlist'][k]['url'],
@@ -30,18 +31,18 @@ begin
 
     if @setlistfm_data['setlists']['setlist'][k]['sets']['set'].instance_of?(Array)
       j = 0
-      while j < @setlistfm_data['setlists']['setlist'][k]['sets']['set'].length do
+      while j < @setlistfm_data['setlists']['setlist'][k]['sets']['set'].length-1 do
 
        i = 0
-       while i < @setlistfm_data['setlists']['setlist'][k]['sets']['set'][j]['song'].length do
+       while i < @setlistfm_data['setlists']['setlist'][k]['sets']['set'][j]['song'].length-1 do
          SongPerformance.create(title:  @setlistfm_data['setlists']['setlist'][k]['sets']['set'][j]['song'][i]['@name'], event_id: @event.id)
 
-        #  if (@setlistfm_data['setlists']['setlist'][k]['sets']['set'][j]['song'][i]['cover'] != nil )
-        #   SongPerformance.create(songwriter:  @setlistfm_data['setlists']['setlist'][k]['sets']['set'][j]['song'][i]['cover']['@name'], event_id: @event.id)
-        # end
+         if (@setlistfm_data['setlists']['setlist'][k]['sets']['set'][j]['song'][i]['cover'] != nil )
+          SongPerformance.create(songwriter:  @setlistfm_data['setlists']['setlist'][k]['sets']['set'][j]['song'][i]['cover']['@name'], event_id: @event.id)
+        end
         i += 1
       end
-       SongPerformance.create(set:  j+1, event_id: @event.id)
+          SongPerformance.create(set:  j+1, event_id: @event.id)
       j += 1
     end
 # SongPerformance.create(encore:  @setlistfm_data['setlists']['setlist'][k]['sets']['set'][j]['song']) 
@@ -51,16 +52,16 @@ else
   else
     if @setlistfm_data['setlists']['setlist'][k]['sets']['set'].instance_of?(Hash)
       i = 0
-      while i < @setlistfm_data['setlists']['setlist'][k]['sets']['set']['song'].length do
+      while i < @setlistfm_data['setlists']['setlist'][k]['sets']['set']['song'].length-1 do
         SongPerformance.create(title:  @setlistfm_data['setlists']['setlist'][k]['sets']['set']['song'][i]['@name'], event_id: @event.id)
-        
-       #  if (@setlistfm_data['setlists']['setlist'][k]['sets']['set']['song'][i]['cover'] != nil )
-       #   SongPerformance.create(songwriter:  @setlistfm_data['setlists']['setlist'][k]['sets']['set']['song'][i]['cover']['@name'], event_id: @event.id)
-       # end
+        if (@setlistfm_data['setlists']['setlist'][k]['sets']['set']['song'][i]['cover'] != nil )
+         SongPerformance.create(songwriter:  @setlistfm_data['setlists']['setlist'][k]['sets']['set']['song'][i]['cover']['@name'], event_id: @event.id)
+       end
        i += 1
      end
-    end
-  end
+
+   end
+ end
 end 
 
 k += 1
@@ -71,5 +72,4 @@ end
 
 m += 1
 end
-
 end
