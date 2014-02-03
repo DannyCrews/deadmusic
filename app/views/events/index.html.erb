@@ -7,50 +7,53 @@
 </div>
 
 <div class="pull-right">
-<p><iframe width="410" height="315" src="http://youtube.com/embed/ZZ2JUjYcroc" frameborder="0" allowfullscreen></iframe>
-</div>
+  <p><iframe width="410" height="315" src="http://youtube.com/embed/ZZ2JUjYcroc" frameborder="0" allowfullscreen></iframe>
+  </div>
 
-<br>
-<br>
+  <br>
+  <br>
 
-<div class="table-responsive">
-<table class="table">
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th>Venue</th>
-      <th>URL</th>
-      <th>City</th>
-      <th>State</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-   <div class="event-list" <% @events.each do |event| %>
-      <tr>
-        <td><%= event.date.strftime('%D') %></td>
-        <td><%= event.venue %></td>
-        <td><%= event.url %></td>
-        <td><%= event.city %></td>
-        <td><%= event.state %></td>
-        <td><%= link_to 'Show', event %> </td>
-      </tr>
-    <% end %>
-    </div>
-  </tbody>
-</table>
-</div>
-
+<!--   <div class="container">
+ -->    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Venue</th>
+            <th>URL</th>
+            <th>City</th>
+            <th>State</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+        <div class="event-list">
+        <% @events.each do |event| %>
+          <tr>
+            <td><%= event.date.strftime('%D') %></td>
+            <td><%= event.venue %></td>
+            <td><%= event.url %></td>
+            <td><%= event.city %></td>
+            <td><%= event.state %></td>
+            <td><%= link_to 'Show', event %> </td>
+          </tr>
+          <% end %>
+        </div>
+      </tbody>
+    </table>
+  </div>
+<!-- </div>
+ -->
 <br>
 
 <%= link_to 'New Event', new_event_path %>
 
 
 <script type="text/javascript">
-    handler = Gmaps.build('Google');
-    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-        markers = handler.addMarkers(<%=raw @hash.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-    });
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers(<%=raw @hash.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  });
 </script>
