@@ -27,7 +27,7 @@
   <tbody>
    <div class="event-list" <% @events.each do |event| %>
       <tr>
-        <td><%= event.date %></td>
+        <td><%= event.date.strftime('%D') %></td>
         <td><%= event.venue %></td>
         <td><%= event.url %></td>
         <td><%= event.city %></td>
