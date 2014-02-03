@@ -2,7 +2,7 @@
   <h1>Song List for <%= link_to(@event.city, @event) %></h1>
 </header>
 
-<ul id="songs">
+<ul id="songs" class="list-unstyled">
   <% @songs.each do |song| %>
     <li>
       <span class="song"><%= song.title %></span>
