@@ -7,7 +7,7 @@ class EventsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@events) do |event, marker|
       marker.lat event.lat
       marker.lng event.long
-      marker.infowindow event.date
+      marker.infowindow "#{event.date.strftime('%D')} - #{event.city} - #{event.venue}"
       end
     end
 

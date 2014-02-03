@@ -30,8 +30,8 @@
           <tr>
             <td><%= event.date.strftime('%D') %></td>
             <td><%= event.venue %></td>
-            <td><%= event.url %></td>
-            <td><%= event.city %></td>
+            <td><a href=<%= event.url %>><%= event.url %></a></td>
+            <td><%= event.city %>
             <td><%= event.state %></td>
             <td><%= link_to 'Show', event %> </td>
           </tr>
